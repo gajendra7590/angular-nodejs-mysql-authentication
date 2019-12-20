@@ -1,0 +1,41 @@
+<!-- Begin page content -->
+<main role="main" class="container">
+    <div class="row">
+        <div class="mx-auto col-sm-6 mt-5">
+            <div class="alert" [ngClass]="alertClass" *ngIf="alertIsTrue" role="alert">
+                {{ alertMsg }}
+            </div> 
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">User Login</h5>
+                </div>
+                <div class="card-body">
+                    <form name="loginForm" (ngSubmit)="frm.valid && loginSubmit()" #frm="ngForm" novalidate>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input name="email" [(ngModel)]="loginFormData.email" #email="ngModel"
+                                [ngClass]="{ 'is-invalid': frm.submitted && email.invalid }" required email type="email"
+                                class="form-control" placeholder="Enter email">
+                            <div *ngIf="frm.submitted && email.invalid" class="invalid-feedback">
+                                <div *ngIf="email.errors.required">The email address is required</div>
+                                <div *ngIf="email.errors.email">The Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input name="password" [(ngModel)]="loginFormData.password" #password="ngModel"
+                                [ngClass]="{ 'is-invalid': frm.submitted && password.invalid }" required type="password"
+                                class="form-control" placeholder="Enter password">
+                            <div *ngIf="frm.submitted && password.invalid" class="invalid-feedback">
+                                <div *ngIf="password.errors.required">Ther password is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary float-right">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
