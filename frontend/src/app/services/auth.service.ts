@@ -24,13 +24,18 @@ export class AuthService {
   logOutUser() {
     return this._http.post<any>(this._logoutUrl, {});
   }
-  
-  isLoggedIn(){
+
+  isLoggedIn() {
     return !!localStorage.getItem('token');
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('token');
+  }
+
+  removeToken() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("auth_data");
   }
 
 }

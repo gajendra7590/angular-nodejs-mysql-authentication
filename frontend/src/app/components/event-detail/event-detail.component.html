@@ -1,0 +1,44 @@
+<!-- Begin page content -->
+<main role="main" class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-5">
+            <li class="breadcrumb-item active" aria-current="page"><span
+                    class="font-weight-bold text-success text-uppercase">Event</span> : {{ eventsDetail.event_name }}
+            </li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-sm-9 mt-2 mb-5">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">{{ eventsDetail.event_title }}</h5>
+                </div>
+                <div class="card-body">
+                    <img src="{{ eventsDetail.event_img }}" height="400" width="780">
+                    <p class="card-title">Event Organised Date : {{ eventsDetail.event_date | date:'MM/dd/yyyy' }}</p>
+                    <hr>
+                    <p class="card-text">{{ eventsDetail.event_desc }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 mt-2 mb-5">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-dark">Most Popular Event</li>
+                        <li *ngFor="let mpe of popularEvents" class="list-group-item">
+                            <a routerLink="/events/{{ mpe.id }}">{{ mpe.event_name }}</a>
+                        </li> 
+                    </ul>
+
+                    <ul class="list-group mt-3">
+                        <li class="list-group-item list-group-item-dark">Similar Event</li>
+                        <li *ngFor="let se of similarEvents" class="list-group-item">
+                            <a routerLink="/events/{{ se.id }}">{{ se.event_name }}</a>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -12,12 +12,14 @@
                     <h5 class="card-title">{{ event.event_name }}</h5>
                 </div>
                 <div class="card-body">
-                    <img src="{{ event.event_img }}" height="250" width="310">
-                    <p class="card-text">{{ event.event_title }}</p>
+                    <a routerLink="/events/{{ event.id }}">
+                        <img src="{{ event.event_img }}" height="250" width="310">
+                        <p class="card-text">{{ event.event_title }}</p>
+                    </a>
                     <p class="card-title">Event At : {{ event.event_date | date:'MM/dd/yyyy' }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">View Detail</a>
+                    <a routerLink="/events/{{ event.id }}" class="btn btn-primary">View Detail</a>
                 </div>
             </div>
         </div>

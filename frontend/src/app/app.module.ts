@@ -22,6 +22,7 @@ import { AuthService } from './services/auth.service';
 import { CommonService } from './services/common.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     HomeComponent,
     EventsComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,

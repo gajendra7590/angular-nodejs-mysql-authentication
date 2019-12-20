@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { EventsComponent } from './components/events/events.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AuthGuard } from './auth.guard';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
 
 const routes: Routes = [
   { path:"",component:HomeComponent,pathMatch:"full" },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: "register", component:RegisterComponent },
   { path: "logout", component:LogoutComponent,canActivate:[AuthGuard] },
   { path: "events", component:EventsComponent ,canActivate:[AuthGuard]  },
+  { path: "events/:id", component:EventDetailComponent }
 ];
 
 @NgModule({
